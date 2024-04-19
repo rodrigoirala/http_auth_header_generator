@@ -1,0 +1,63 @@
+{
+  "port": 3002,
+  "isDev": true,
+  "clients_credentials": [{
+      "description": "credenciales para server x",
+      "user": "pruebita",
+      "pass": "pruebon"
+    }
+  ],
+  "whiteListClients": [{
+      "description": "Some Server description",
+      "ip": "some-ip"
+    }
+  ],
+  "services": {
+    "someInternalService": {
+      "authType": "PlainToken",
+      "instanceParams": {
+        "credentials": {
+          "email":"someemail@gmail.com",
+          "password": "somePassword"},
+        "authEndpoint": "https://some-host/login",
+        "bodyResponseTokenKey": "some.nested.token.key"
+      }
+    },
+    "someCredencialServices": {
+      "authType": "AuthUserPass",
+      "instanceParams": {
+        "credentials": {
+          "user":"someUser", 
+          "password": "somePassword"
+        }
+      }
+    },
+    "someExternalService": {
+      "authType": "AuthorizationBearer",
+      "instanceParams": {
+        "credentials": {
+          "username":"someuser", 
+          "password": "somepass"},
+        "authEndpoint": "https://some-host/auth",
+        "bodyResponseTokenKey": "some.nested.token.key"
+      }
+    },
+    "someBasicAuthService": {
+      "authType": "AuthorizationBasic",
+      "instanceParams": {
+        "credentials": {
+          "user":"", 
+          "pass": ""
+        }
+      }
+    },
+    "someHCService": {
+      "authType": "AuthorizationBearerHardcoded",
+      "instanceParams": {
+        "credentials": {
+          "token": "someHardCodedToken"
+        }
+      }
+    }
+  }
+}

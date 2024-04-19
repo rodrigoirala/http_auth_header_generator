@@ -1,0 +1,14 @@
+services:
+  
+  token-back:
+    image: keymetrics/pm2:latest-stretch
+    restart: unless-stopped
+    container_name: token_back
+    working_dir: /home/node/token-generator/
+    volumes:
+    - ./:/home/node/token-generator/
+    ports:
+    - "3002:3002"
+    environment:
+      NODE_ENV: development
+    command: "pm2-runtime start pm2_apps.json  --env development"
